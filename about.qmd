@@ -1,0 +1,12 @@
+---
+title: "About"
+---
+
+## Background
+I grew up in Lagos, Nigeria nad lived there for basically the most part of my life. I have a curiousity After earning my Bachelors in Information Science and Media Studies, I worked as a Teaching and Research Assistant for about a year and then IT coordinator/ Technical Support Rep for about 4 years before joining the UBC Masters in Data Science
+
+## Why Data Science
+I decided to go into Data Science because I was introduced to it during my bachelors degree. I loved the concept and it combined skills and knowledge that I was curious about
+
+## Outside of Data Science
+I love to bake, sing and play games
