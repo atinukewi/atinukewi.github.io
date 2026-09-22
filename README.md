@@ -1,8 +1,7 @@
 # atinukewi.github.io
 
-This is the source for my personal website and blog — an "About" page and a set of
-milestone posts (mixing R and Python analysis) built with [Quarto](https://quarto.org)
-and published to GitHub Pages.
+This is the source for my personal website and blog with an "About Me" page and a set of
+milestone posts (mixing R and Python analysis) built with Quarto and published to GitHub Pages.
 
 ## 1. Install first
 
