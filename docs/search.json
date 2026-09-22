@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Milestone 3 in R!\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nAtinuke Wole-Ilori\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 11, 2026\n\n\nAtinuke Wole-Ilori\n\n\n\n\n\nNo matching items"
+    "text": "Milestone 3 in Python!\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nAtinuke Wole-Ilori\n\n\n\n\n\n\n\n\n\n\n\n\nMilestone 3 in R!\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nAtinuke Wole-Ilori\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 11, 2026\n\n\nAtinuke Wole-Ilori\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -12,6 +12,13 @@
     "title": "Atinuke Wole-Ilori",
     "section": "",
     "text": "After earning my BSc in Information Science and Media Studies, I relocated from Nigeria to Canada in December 2024 to advance my technical expertise. I am now channeling my background into becoming a well-rounded and proficient data scientist by the end of my degree. I’m eager to leverage this unique combination of skills to drive impactful, data-informed solutions."
+  },
+  {
+    "objectID": "posts/python-post/index.html",
+    "href": "posts/python-post/index.html",
+    "title": "Milestone 3 in Python!",
+    "section": "",
+    "text": "A little intro\nFor Milestone 3, I have decided to perform some analysis on the Palmer Penguin dataset by Allison Horst:\nPalmer Penguins, Palmer Station Antarctica LTER.\n\n\n\nPalmer Penguins Logo: allisonhorst.github.io\n\n\n\n\nExploring the penguins!\nFirst, I am going to apply the relevant libraries that we are going to be using in this analysis.\n\nimport pandas as pd\nimport palmerpenguins"
   },
   {
     "objectID": "posts/first-weeks/index.html",

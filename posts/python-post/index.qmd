@@ -1,0 +1,23 @@
+---
+title: "Milestone 3 in Python!"
+author: "Atinuke Wole-Ilori"
+date: 2026-09-21
+jupyter: python3
+---
+
+# A little intro
+For Milestone 3, I have decided to perform some analysis on the Palmer Penguin dataset by Allison Horst: 
+
+[Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/), Palmer Station Antarctica LTER.
+
+![Palmer Penguins Logo: allisonhorst.github.io](logo.png)
+
+# Exploring the penguins!
+
+First, I am going to apply the relevant libraries that we are going to be using in this analysis.
+```{python}
+import pandas as pd
+import palmerpenguins
+```
+
+
