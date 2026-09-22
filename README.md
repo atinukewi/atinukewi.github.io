@@ -21,9 +21,9 @@ itself the first time R runs inside this project (see step 2 below).
 
 ## 2. Build, start to finish
 
-Run the shell commands from your terminal, in order. The `Rscript -e` command runs R
-code but is still typed at the shell — R itself only opens implicitly to run that one
-line.
+Steps 1, 2, and 4 are typed at the shell. Step 3 is run from inside
+[RStudio Desktop](https://posit.co/download/rstudio-desktop/) — install that too if you
+don't have it.
 
 ```bash
 # 1. Clone the repo (shell)
@@ -34,23 +34,31 @@ cd atinukewi.github.io
 # Reads pyproject.toml / uv.lock, downloads Python 3.14 if you don't have it,
 # and installs pandas, seaborn, palmerpenguins, jupyter, etc. into .venv/
 uv sync
+```
 
-# 3. Set up the R environment (shell, runs a one-line R script)
-# The first R process started in this folder sources .Rprofile, which runs
-# renv/activate.R. That script installs renv itself if it's missing, then
-# renv::restore() reads renv.lock and installs the exact R package versions
-# (tidyverse, palmerpenguins, etc.) into a project-local library.
-Rscript -e "renv::restore()"
+**3. Set up the R environment (RStudio).** Open RStudio, then use
+**File → Open Project...** (or **File → Open Folder...** if you're not using an
+`.Rproj` file) and point it at the `atinukewi.github.io` folder you just cloned — this
+sets the working directory to the repo root, which matters because `.Rprofile` lives
+there. Opening the folder as your working directory triggers `.Rprofile`, which sources
+`renv/activate.R`; that script installs `renv` itself if it's missing. Then, in the
+Console pane, run:
 
+```r
+renv::restore()
+```
+
+This reads `renv.lock` and installs the exact R package versions (tidyverse,
+palmerpenguins, etc.) into a project-local library. If it prompts you to confirm,
+answer yes.
+
+```bash
 # 4. Render the site (shell)
 # Runs inside the uv-managed venv so the Python code blocks (jupyter: python3)
 # pick up the packages from step 2. The R code blocks use Rscript from your
-# PATH, which auto-activates the renv library from step 3.
+# PATH, which auto-activates the renv library set up in step 3.
 uv run quarto render
 ```
-
-If `renv::restore()` prompts you to confirm, answer yes — it's just agreeing to
-install the locked package versions into the project library.
 
 ## 3. Where the built site lands
 
