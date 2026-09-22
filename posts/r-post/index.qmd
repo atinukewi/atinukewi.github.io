@@ -16,6 +16,7 @@ For Milestone 3, I have decided to perform some analysis on the Palmer Penguin d
 First, I am going to apply the relevant libraries that we are going to be using in this analysis.
 ```{r}
 #| message: false
+#| warning: false
 library(tidyverse)
 library(palmerpenguins)
 ```
@@ -40,9 +41,11 @@ arrange_penguins
 Now, I'm going to plot it as a bar chart!
 
 ```{r}
+#| label: fig-penguin-bill-depth
+#| fig-cap: "Bill Depth of penguins by species."
+
 arrange_plot <- ggplot(arrange_penguins, aes(x = species, y = mean_bill_depth)) +
-  geom_col(fill = "steelblue") +
-  labs(title = "Bill Depths by Specie" )
+  geom_col(fill = "steelblue")
 arrange_plot
 ```
 
@@ -55,9 +58,10 @@ relevel_penguins <- arrange_penguins |>
 
 ... and replot
 ```{r}
+#| label: fig-penguin-bill-depth-2
+#| fig-cap: "Bill Depth of penguins by species releveled."
 relevel_plot <- ggplot(relevel_penguins, aes(x = species, y = mean_bill_depth)) +
-  geom_col(fill = "steelblue") +
-  labs(title = "Bar Chart after fct_relevel() function" )
+  geom_col(fill = "steelblue")
 relevel_plot
 ```
 

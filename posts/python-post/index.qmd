@@ -16,6 +16,8 @@ For Milestone 3, I have decided to perform some analysis on the Palmer Penguin d
 
 First, I am going to import the relevant libraries that we are going to be using in this analysis.
 ```{python}
+#| message: false
+#| warning: false
 import pandas as pd
 from palmerpenguins import load_penguins
 import seaborn as sns
@@ -45,6 +47,8 @@ print(arrange_penguins)
 Now, I'm going to plot it as a bar chart!
 
 ```{python}
+#| label: fig-penguin-bill-by-species
+#| fig-cap: "Bill Depth by species."
 arrange_plot = sns.barplot(
     data=arrange_penguins, 
     x='species', 
@@ -58,6 +62,9 @@ arrange_plot.set_title("Bill Depths by Specie")
 I would also like to see the distribution of the penguins by bill depth and body mass because there may possibly be some sort of correlation. I'm also going to label them by specie.
 
 ```{python}
+#| label: fig-penguin-mass-bill-species
+#| fig-cap: "Bill Depth by Body mass of penguins by species."
+
 penguins = penguins.dropna()
 
 p = sns.relplot(
@@ -73,6 +80,11 @@ p = sns.relplot(
 p.set_axis_labels('Body Mass (g)', 'Bill Depth (mm)')
 p.fig.suptitle('Bill Depth vs Body Mass by Species', y=1.02)
 p._legend.set_title('Species')
+
 ```
 
-I can conclude that there is definitely a correlation between the body mass, bill depth and specie of the penguins.
+I can conclude that there is definitely a correlation between the body masses, bill depths and species of the penguins.
+
+# References
+
+Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.
