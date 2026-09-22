@@ -15,6 +15,7 @@ For Milestone 3, I have decided to perform some analysis on the Palmer Penguin d
 # Exploring the penguins!
 
 First, I am going to import the relevant libraries that we are going to be using in this analysis.
+
 ```{python}
 #| message: false
 #| warning: false
