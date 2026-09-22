@@ -20,7 +20,7 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-Next, let's get a glimpseof what the penguins dataset looks like.
+Next, let's get a glimpse of what the penguins dataset looks like.
 ```{r}
 penguins
 ```

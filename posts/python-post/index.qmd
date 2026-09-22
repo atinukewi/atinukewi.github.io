@@ -10,14 +10,69 @@ For Milestone 3, I have decided to perform some analysis on the Palmer Penguin d
 
 [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/), Palmer Station Antarctica LTER.
 
-![Palmer Penguins Logo: allisonhorst.github.io](logo.png)
+![Meet Palmer Penguins: allisonhorst.github.io](thepenguins.png)
 
 # Exploring the penguins!
 
-First, I am going to apply the relevant libraries that we are going to be using in this analysis.
+First, I am going to import the relevant libraries that we are going to be using in this analysis.
 ```{python}
 import pandas as pd
-import palmerpenguins
+from palmerpenguins import load_penguins
+import seaborn as sns
+import matplotlib as plt
 ```
 
+Next, let's get a glimpse of what the penguins dataset looks like.
 
+```{python}
+penguins = load_penguins()
+penguins
+```
+
+The first thing I would like to do is find the average bill depths of each specie.
+
+```{python}
+arrange_penguins = (
+    penguins.dropna(subset=["species", "bill_depth_mm"])
+    .groupby("species")["bill_depth_mm"]
+    .mean()
+    .reset_index(name="mean_bill_depth")
+    .sort_values(by="mean_bill_depth")
+)
+print(arrange_penguins)
+```
+
+Now, I'm going to plot it as a bar chart!
+
+```{python}
+arrange_plot = sns.barplot(
+    data=arrange_penguins, 
+    x='species', 
+    y='mean_bill_depth', 
+    color='steelblue'
+)
+
+arrange_plot.set_title("Bill Depths by Specie")
+```
+
+I would also like to see the distribution of the penguins by bill depth and body mass because there may possibly be some sort of correlation. I'm also going to label them by specie.
+
+```{python}
+penguins = penguins.dropna()
+
+p = sns.relplot(
+    data=penguins,
+    x='body_mass_g',
+    y='bill_depth_mm',
+    hue='species',
+    kind='scatter',
+    height=6,
+    aspect=1.2
+)
+
+p.set_axis_labels('Body Mass (g)', 'Bill Depth (mm)')
+p.fig.suptitle('Bill Depth vs Body Mass by Species', y=1.02)
+p._legend.set_title('Species')
+```
+
+I can conclude that there is definitely a correlation between the body mass, bill depth and specie of the penguins.
