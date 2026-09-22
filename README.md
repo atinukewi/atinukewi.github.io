@@ -14,7 +14,7 @@ are the known-good ones.
 |--------|---------------|-------|
 | Quarto | 1.10.18       | [quarto.org/docs/get-started](https://quarto.org/docs/get-started/) |
 | `uv`   | 0.11.17       | Manages the Python interpreter *and* the Python deps — you do not need a separate Python install. `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
-| R      | 4.6.1         | [r-project.org](https://www.r-project.org/) — needs to be on your `PATH` as `R` / `Rscript` |
+| R & RStudio     | 4.6.1         | [r-project.org](https://www.r-project.org/) — needs to be on your `PATH` as `R` / `Rscript` |
 
 `renv` (the R package manager) is **not** something you install yourself — it bootstraps
 itself the first time R runs inside this project (see step 2 below).
