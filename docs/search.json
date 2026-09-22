@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 11, 2026\n\n\nAtinuke Wole-Ilori\n\n\n\n\n\nNo matching items"
+    "text": "Milestone 3 in R!\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nAtinuke Wole-Ilori\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 11, 2026\n\n\nAtinuke Wole-Ilori\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -19,6 +19,13 @@
     "title": "My first weeks in MDS",
     "section": "",
     "text": "Diving head-first into the MDS program has been a total whirlwind, but meeting so many amazing, brilliant peers has made the crazy ride completely worth it. The workload is definitely no joke—let’s just say my coffee intake has officially hit record highs! It’s going to be a wild, challenging ride, but I am so ready to tackle every single week ahead.\n\n\n\nChilling on a couch"
+  },
+  {
+    "objectID": "posts/r-post/index.html",
+    "href": "posts/r-post/index.html",
+    "title": "Milestone 3 in R!",
+    "section": "",
+    "text": "A little intro\nFor Milestone 3, I have decided to perform some analysis on the Palmer Penguin dataset by Allison Horst:\nPalmer Penguins, Palmer Station Antarctica LTER.\n\n\n\nPalmer Penguins Logo: allisonhorst.github.io\n\n\n\n\nExploring the penguins!\nFirst, I am going to apply the relevant libraries that we are going to be using in this analysis.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\nNext, let’s get a glimpseof what the penguins dataset looks like.\n\npenguins\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\n\nThe first thing I would like to do is find the average bill depths of each specie.\n\narrange_penguins&lt;- penguins|&gt;\n            drop_na(species, bill_depth_mm)|&gt;\n            group_by(species)|&gt;\n            summarise(mean_bill_depth = mean(bill_depth_mm))|&gt;\n            arrange(mean_bill_depth)\n\narrange_penguins\n\n# A tibble: 3 × 2\n  species   mean_bill_depth\n  &lt;fct&gt;               &lt;dbl&gt;\n1 Gentoo               15.0\n2 Adelie               18.3\n3 Chinstrap            18.4\n\n\nNow, I’m going to plot it as a bar chart!\n\narrange_plot &lt;- ggplot(arrange_penguins, aes(x = species, y = mean_bill_depth)) +\n  geom_col(fill = \"steelblue\") +\n  labs(title = \"Bill Depths by Specie\" )\narrange_plot\n\n\n\n\n\n\n\n\nI do not like the order of this plot. I would like it to be in an ascending order. Let’s reorder the factors…\n\nrelevel_penguins &lt;- arrange_penguins |&gt;\n                mutate(species = fct_relevel(species, \"Gentoo\", \"Adelie\", \"Chinstrap\"))\n\n… and replot\n\nrelevel_plot &lt;- ggplot(relevel_penguins, aes(x = species, y = mean_bill_depth)) +\n  geom_col(fill = \"steelblue\") +\n  labs(title = \"Bar Chart after fct_relevel() function\" )\nrelevel_plot\n\n\n\n\n\n\n\n\nThat’s better!\n\n\nReferences\nHorst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218."
   },
   {
     "objectID": "about.html",

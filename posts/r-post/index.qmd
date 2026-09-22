@@ -1,0 +1,68 @@
+---
+title: "Milestone 3 in R!"
+author: "Atinuke Wole-Ilori"
+date: 2026-09-21
+---
+
+# A little intro
+For Milestone 3, I have decided to perform some analysis on the Palmer Penguin dataset by Allison Horst: 
+
+[Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/), Palmer Station Antarctica LTER.
+
+![Palmer Penguins Logo: allisonhorst.github.io](logo.png)
+
+# Exploring the penguins!
+
+First, I am going to apply the relevant libraries that we are going to be using in this analysis.
+```{r}
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+Next, let's get a glimpseof what the penguins dataset looks like.
+```{r}
+penguins
+```
+
+The first thing I would like to do is find the average bill depths of each specie.
+
+```{r}
+arrange_penguins<- penguins|>
+            drop_na(species, bill_depth_mm)|>
+            group_by(species)|>
+            summarise(mean_bill_depth = mean(bill_depth_mm))|>
+            arrange(mean_bill_depth)
+
+arrange_penguins
+```
+
+Now, I'm going to plot it as a bar chart!
+
+```{r}
+arrange_plot <- ggplot(arrange_penguins, aes(x = species, y = mean_bill_depth)) +
+  geom_col(fill = "steelblue") +
+  labs(title = "Bill Depths by Specie" )
+arrange_plot
+```
+
+I do not like the order of this plot. I would like it to be in an ascending order. Let's reorder the factors...
+
+```{r}
+relevel_penguins <- arrange_penguins |>
+                mutate(species = fct_relevel(species, "Gentoo", "Adelie", "Chinstrap"))
+```
+
+... and replot
+```{r}
+relevel_plot <- ggplot(relevel_penguins, aes(x = species, y = mean_bill_depth)) +
+  geom_col(fill = "steelblue") +
+  labs(title = "Bar Chart after fct_relevel() function" )
+relevel_plot
+```
+
+That's better!
+
+# References
+
+Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.
